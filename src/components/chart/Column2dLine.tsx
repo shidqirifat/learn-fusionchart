@@ -4,16 +4,20 @@ import FusionCharts from "fusioncharts";
 import Chart from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import ButtonExport from "../button/ButtonExport";
+import { FormatDownloadChart } from "@/types/chart";
 
 ReactFusioncharts.fcRoot(FusionCharts, Chart, FusionTheme);
 
 type ChartProps = {
+  id: string;
   chartStyle?: Record<string, string>;
   dataset: any;
   categories: any;
 };
 
 export default function Column2dLine({
+  id,
   chartStyle,
   categories,
   dataset,
@@ -32,13 +36,26 @@ export default function Column2dLine({
     dataset,
   };
 
+  const exportChart = (format: FormatDownloadChart) => {
+    FusionCharts.batchExport({
+      exportFormat: format,
+      exportFileName: "export-chart",
+      charts: [{ id }],
+    });
+  };
+
   return (
-    <ReactFusioncharts
-      type="mscombi2d"
-      width="100%"
-      height="300"
-      dataFormat="JSON"
-      dataSource={dataSource}
-    />
+    <div>
+      <ButtonExport onClick={exportChart} />
+
+      <ReactFusioncharts
+        id={id}
+        type="mscombi2d"
+        width="100%"
+        height="400"
+        dataFormat="JSON"
+        dataSource={dataSource}
+      />
+    </div>
   );
 }

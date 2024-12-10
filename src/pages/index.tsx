@@ -42,59 +42,73 @@ export default function Home() {
   return (
     <ActivationChart>
       <div className="grid grid-cols-1 gap-8 m-4">
-        <ChartWrapper
-          title="Transaction Type - Number of transactions"
-          caption="From 01-01-2024 to 03-12-2024"
-        >
-          <Pie2d data={generateDataPieChart()} />
+        <ChartWrapper>
+          <Pie2d
+            id="transaction-pie-chart"
+            chartStyle={{
+              caption: "Transaction Type",
+              subcaption: "From 01-01-2024 to 03-12-2024",
+            }}
+            data={generateDataPieChart()}
+          />
         </ChartWrapper>
 
-        <ChartWrapper
-          title="Transaction Type - Number of transactions"
-          caption="From 01-01-2024 to 03-12-2024"
-        >
+        <ChartWrapper>
           <StackedColumn
+            id="transaction-stacked-chart"
+            chartStyle={{
+              caption: "Transaction Type - Number of transactions",
+              subcaption: "From 01-01-2024 to 03-12-2024",
+            }}
             categories={[{ category: generateCategoriesChart() }]}
             dataset={generateDatasetStackedColumnChart()}
           />
         </ChartWrapper>
 
-        <ChartWrapper
-          title="Direct issues excluding transfer orders (All)"
-          caption="From 01-01-2024 to 03-12-2024"
-        >
+        <ChartWrapper>
           <Column2dLine
+            id="issues-column-chart"
+            chartStyle={{
+              caption: "Direct issues excluding transfer orders (All)",
+              subcaption: "From 01-01-2024 to 03-12-2024",
+            }}
             categories={[{ category: generateCategoriesChart() }]}
             dataset={generateDatasetCombinationChart()}
           />
         </ChartWrapper>
 
-        <ChartWrapper
-          title="% Availability (or In-stock %)"
-          caption="From 01-01-2024 to 03-12-2024"
-        >
+        <ChartWrapper>
           <Line
-            chartStyle={{ paletteColors: "#8979FF" }}
+            id="availability-line-chart"
+            chartStyle={{
+              caption: "% Availability (or In-stock %)",
+              subcaption: "From 01-01-2024 to 03-12-2024",
+              paletteColors: "#8979FF",
+            }}
             data={generateDataChart()}
           />
         </ChartWrapper>
 
-        <ChartWrapper
-          title="Average lead time (days)"
-          caption="From 01-01-2024 to 03-12-2024"
-        >
+        <ChartWrapper>
           <Column2d
-            chartStyle={{ paletteColors: "#FFAE4C" }}
+            id="average-lead-time-column-chart"
+            chartStyle={{
+              caption: "Average lead time (days)",
+              subcaption: "From 01-01-2024 to 03-12-2024",
+              paletteColors: "#FFAE4C",
+            }}
             data={generateDataChart()}
           />
         </ChartWrapper>
 
-        <ChartWrapper
-          title="Number of Orders"
-          caption="From 01-01-2024 to 03-12-2024"
-        >
+        <ChartWrapper>
           <Column2d
-            chartStyle={{ paletteColors: "#88C6CC" }}
+            id="number-order-column-chart"
+            chartStyle={{
+              caption: "Number of Orders",
+              subcaption: "From 01-01-2024 to 03-12-2024",
+              paletteColors: "#88C6CC",
+            }}
             data={generateDataChart()}
           />
         </ChartWrapper>

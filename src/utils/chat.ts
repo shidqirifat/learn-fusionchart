@@ -10,6 +10,12 @@ export const generateDefaultStyleChart = (numVDivLines = 12) => {
     canvasBorderThickness: "0",
     plotBorderThickness: "0", // Remove the border around the plot data
 
+    // Caption
+    captionFontSize: "14",
+    captionFontColor: "#021217",
+    subCaptionFontSize: "12",
+    subCaptionFontColor: "#787878",
+
     // Horizontal grid lines
     divLineDashed: "1",
     divLineDashLen: "2",
@@ -46,6 +52,8 @@ export const generateDefaultStyleChart = (numVDivLines = 12) => {
     legendIconBorderThickness: "0",
     legendIconSides: "4", // Make the legend icons square (box shape)
 
+    chartTopMargin: "0",
+    canvasTopMargin: "60",
     transposeAxis: "1",
   };
 };
