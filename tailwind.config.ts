@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import Colors from "tailwindcss/colors";
 
 export default {
   content: [
@@ -11,6 +12,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        gray: {
+          ...Colors.gray,
+          DEFAULT: "#D2D2D2",
+        },
       },
     },
   },

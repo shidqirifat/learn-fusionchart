@@ -2,20 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.fusioncharts-legend-icon {
+  shape-rendering: auto;
+  width: 10px; /* Adjust box size */
+  height: 10px;
+  background: currentColor; /* Matches the plot color */
+  border-radius: 0; /* Ensure the icon is a square */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.fusioncharts-legend-icon rect {
+  fill: none;
+}
+
+.fusioncharts-legend-item text {
+  line-height: 1.5; /* Adjust line height */
+  dominant-baseline: middle; /* Ensure text is vertically aligned */
+}
+
+.fusioncharts-legend-item rect {
+  transform: translateY(3px); /* Adjust the position of icons */
 }
